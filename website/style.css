@@ -1,0 +1,115 @@
+@import "https://use.fontawesome.com/releases/v5.14.0/css/all.css";
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@700&family=Italianno&family=Lovers+Quarrel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@600;700&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* html {
+    scroll-behavior: smooth;
+} */
+
+body {
+    height: 100vh; /*full screen */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(8 58 58);
+    background-image: linear-gradient(62deg, #4e83b8 0%, #E0C3FC 100%);
+    font-family: sans-serif;
+}
+
+.heading {
+    font-size: 70px;
+    font-family: 'Merriweather', serif;
+    letter-spacing: 1px;
+}
+
+.zip-code {
+    font-family: 'Source Serif Pro', serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 12px;
+    padding-right: 2px;
+    padding-bottom: 25px;
+    padding-left: 2px;
+
+}
+
+/* the "zip code:" text*/
+label[for="zip"] {
+    font-weight: bold;
+}
+
+.envelope-icon {
+    font-size: 16px;
+    color: rgb(8 58 58);
+    text-shadow: 2px 1px 1px #ccc;
+    margin-top: 2px;
+    margin-right: 6px;
+    margin-left: 4px;
+}
+
+/*enter zip code here box*/
+input[type="text"] {
+    background-color: #eeeef3bf;
+    padding-bottom: 2px;
+}
+
+textarea.write-feels {
+    background-color: #eeeef3bf;
+}
+
+
+
+
+
+button {
+    font-size: 13px;
+    color: #e2dede;
+    width: 100%;
+    text-transform: uppercase;
+    border: 2px solid #17807be0;
+    padding: 8px;
+    margin-top: 7px;
+    margin-bottom: 11px;
+    background-color: #198686b0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2), 0 6px 80px 0 rgba(0,0,0,0.19);
+}
+
+button:hover {
+    background-color: #299c7f96;
+    color: #fffee4;
+    box-shadow: 0 8px 6px 0 rgba(0,0,0,0.2), 0 12px 80px 0 rgba(0,0,0,0.19)
+}
+
+.info-icons {
+    font-size: 15px;
+    color: rgb(8 58 58);
+    text-shadow: 2px 1px 1px #ccc;
+}
+
+footer {
+    font-family: 'Charm', cursive;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 25px;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 800px) {
+    .heading {
+        display: flex;
+        width: 50%;
+        justify-content: center;
+    }
+}

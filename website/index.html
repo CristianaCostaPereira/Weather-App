@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Weather APP</title>
+
+        <link href="style.css" rel="stylesheet"/>
+
+        <script src="https://kit.fontawesome.com/e8d5dc1da5.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <h1 class="heading">Weather Journal</h1>
+        <div id="app">
+            <div class="zip-code">
+                <label for="zip">Zip code:</label>
+                <div class="envelope-icon">
+                    <i class="far fa-envelope fa-1x"></i>
+                </div>
+                <input type="text" id="zip" placeholder="Enter zip code here">
+            </div>
+            
+            <div class="the-feelings">
+                <label for="feelings"></label>
+                <textarea class="write-feels" id="feelings" placeholder="Enter how the weather is making you feel today" rows="10" cols="47"></textarea>
+            </div>
+            
+            <button id="generate" type="submit">Submit</button>
+            
+            <div class="info-icons">
+                <div id="entryHolder">
+                    <div id="date"><i class="far fa-calendar-alt fa-2x"></i></div>
+                    <br>
+                    <div id="temp"><i class="fas fa-thermometer-three-quarters fa-2x"></i></div>
+                    <br>
+                    <div id="content"><i class="far fa-edit fa-2x"></i></div>
+                    <br>
+                </div>
+            </div>
+            
+        </div>
+            
+        <footer>
+            <span>Copyright <i class="far fa-copyright fa-1x"></i> 2020 by Cristiana Pereira | All rights reserved</span>
+        </footer>
+
+        <script src="app.js"></script>
+    </body>
+
+</html>
