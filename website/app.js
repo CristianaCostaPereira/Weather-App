@@ -8,11 +8,18 @@ document.getElementById("generate").addEventListener("click", performAction);
 function performAction(e) {
 // Select the actual value of an HTML input to include in POST, what the user enter themselfes
     const feelings = document.getElementById("feelings").value;
+
+    getWeather("/addWeather")
+    .then(function(data) {
+        console.log(data)
+        // Add data to POST Request
+        postData("/addWeather", {temperature: data.temperature, date: data.date, feelings:feelings});
+    });
 };
 
 // Function to GET Web API Data
-const feelings = async (baseURL, zipCode, apiKey) => {
-    const response = await fetch(baseURL);
+const getWeather = async (baseURL, zipCode, apiKey) => {
+    const response = await fetch(baseURL, zipCode, apiKey);
 
     try {
         const data = await response.json();
@@ -44,9 +51,3 @@ const postData = async (url = "", data = {}) => {
 
 // Call function and pass in the path created
 // Final code for creating a POST route to save the data to our app
-getWeather("/addWeather")
-.then(function (data) {
-    console.log(data)
-    // Add data to POST Request
-    postData("/addWeather", {temperature: data.temperature, date: data.date, feelings:feelings});
-});
