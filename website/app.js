@@ -1,11 +1,10 @@
 // Post request client-side code
-const postData = async (url = "/addWeather", data = {}) => {
-    console.log(data);
+const postData = async (url = "", data = {}) => {
     const response = await fetch(url, {
         method: "POST",
         credentials: "same-origin",
         headers: {
-            "Content-Type": "aplication.json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify(data), // the body allows the access to the data on the server side
     });
