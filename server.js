@@ -35,25 +35,35 @@ app.get("/all", sendData);
 
 function sendData (request, response) {
     response.send(projectData);
+    console.log(projectData);
 };
 
-// POST Route:
-
 // Empty array to hold data
-const data = [];
+const weatherData = [];
+
+app.get("/all", getData);
+
+function getData(request,response) {
+    response.send(weatherData);
+    console.log(weatherData);
+}
+
+// POST Route:
 
 // First argument created is the URL I want to use and creat an API to add infos about the weather
 app.post("/addWeather", addWeather);
 
 // Obtains info from request.body and push into the array to have access to it from anywhere within the app
 function addWeather (request, response) {
-    data.push(req.body);
-    console.log(data);
-}
+    console.log(request.body);
 
-// Process the data received from my POST Request
-// Set a variable named data to hold the value of request.body and print data to see what we receive
-app.post('/addWeather', function (request, response) {
-    let data = req.body;
-    console.log(data);
-});
+    newEntry = {
+        temperature: request.body.temperature,
+        date: request.body.date,
+        feelings: request.body.feelings
+    }
+
+    weatherData.push(newEntry);
+    response.send(weatherData);
+    console.log(weatherData);
+}

@@ -1,15 +1,17 @@
 // GET Request to the weather info API
 let baseURL = "http://api.openweathermap.org/data/2.5/weather?id=524901&appid=0eb4744f931606e24a4c0fa078000411";
 const apiKey = "0eb4744f931606e24a4c0fa078000411";
-const newSky = document.getElementById("entryHolder").value;
+const zipCode = document.getElementById("zip").value;
 
 document.getElementById("generate").addEventListener("click", performAction);
 
 function performAction(e) {
-    uppdateWeather(baseURL, newSky, apiKey)
+// Select the actual value of an HTML input to include in POST, what the user enter themselfes
+    const feelings = document.getElementById("feelings").value;
 };
 
-const uppdateWeather = async (baseURL, newSky, apiKey) => {
+// Function to GET Web API Data
+const feelings = async (baseURL, zipCode, apiKey) => {
     const response = await fetch(baseURL);
 
     try {
@@ -30,7 +32,7 @@ const postData = async (url = "", data = {}) => {
         },
         body: JSON.stringify(data), // the body allows the access to the data on the server side
     });
-
+    
     try {
         const newData = await response.json();
         console.log(newData);
@@ -41,4 +43,10 @@ const postData = async (url = "", data = {}) => {
 }
 
 // Call function and pass in the path created
-postData("/addWeather", {weather:"sunny", temperature: 34});
+// Final code for creating a POST route to save the data to our app
+getWeather("/addWeather")
+.then(function (data) {
+    console.log(data)
+    // Add data to POST Request
+    postData("/addWeather", {temperature: data.temperature, date: data.date, feelings:feelings});
+});
