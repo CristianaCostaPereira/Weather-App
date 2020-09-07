@@ -33,8 +33,8 @@ const server = app.listen (port, () => {
 // "/all" so that the route triggers the GET request and returns the JS object
 app.get("/all", sendData);
 
-function sendData (req, res) {
-    res.send(projectData);
+function sendData (request, response) {
+    response.send(projectData);
 };
 
 // POST Route:
@@ -46,14 +46,14 @@ const data = [];
 app.post("/addWeather", addWeather);
 
 // Obtains info from request.body and push into the array to have access to it from anywhere within the app
-function addWeather (req, res) {
+function addWeather (request, response) {
     data.push(req.body);
     console.log(data);
 }
 
 // Process the data received from my POST Request
 // Set a variable named data to hold the value of request.body and print data to see what we receive
-app.post('/addWeather', function (req, res) {
+app.post('/addWeather', function (request, response) {
     let data = req.body;
     console.log(data);
 });

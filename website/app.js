@@ -1,4 +1,26 @@
-// Post request client-side code
+// GET Request to the weather info API
+let baseURL = "http://api.openweathermap.org/data/?weather=";
+const apiKey = "0eb4744f931606e24a4c0fa078000411";
+const newSky = document.getElementById("entryHolder").value;
+
+document.getElementById("generate").addEventListener("click", performAction);
+
+function performAction(e) {
+    uppdateWeather(baseURL, newSky, apiKey)
+};
+
+const uppdateWeather = async (baseURL, newSky, apiKey) => {
+    const response = await fetch("/all");
+
+    try {
+        const data = await response.json();
+        console.log(data);
+    } catch(error) {
+        console.log("error", error);
+    }
+}
+
+// POST Request client-side code
 const postData = async (url = "", data = {}) => {
     const response = await fetch(url, {
         method: "POST",
