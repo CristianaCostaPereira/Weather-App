@@ -1,5 +1,5 @@
 // GET Request to the weather info API
-let baseURL = "http://api.openweathermap.org/data/?weather=";
+let baseURL = "http://api.openweathermap.org/data/2.5/weather?id=524901&appid=0eb4744f931606e24a4c0fa078000411";
 const apiKey = "0eb4744f931606e24a4c0fa078000411";
 const newSky = document.getElementById("entryHolder").value;
 
@@ -10,7 +10,7 @@ function performAction(e) {
 };
 
 const uppdateWeather = async (baseURL, newSky, apiKey) => {
-    const response = await fetch("/all");
+    const response = await fetch(baseURL);
 
     try {
         const data = await response.json();
