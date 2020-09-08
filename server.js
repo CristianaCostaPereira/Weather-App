@@ -1,5 +1,5 @@
 // Empty JS object to act as endpoint for all routes including as the API endpoint
-projectData = {};
+let projectData = {};
 
 // Express package to run the server and its routes
 const express = require ("express");
@@ -49,13 +49,9 @@ function addData (request, response) {
 
     console.log("POST received ", data);
     
-    projectData["date"] = data.date;
-    projectData["temp"] = data.temp;
-    projectData["feelings"] = data.feelings;
-
-    
-    // Obtains info from request.body and push into the endpoint to have access to it from anywhere within the app
-    projectData.push(data);
+    // projectData["date"] = data.date;
+    // projectData["temp"] = data.temp;
+    projectData["content"] = data.feelings;
 
     // Sends response to endpoint object
     response.send(projectData);
