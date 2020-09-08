@@ -1,12 +1,12 @@
 // GET Request to the weather info API
 let baseURL = "http://api.openweathermap.org/data/2.5/weather?id=524901&appid=0eb4744f931606e24a4c0fa078000411";
 const apiKey = "0eb4744f931606e24a4c0fa078000411";
-const zipCode = document.getElementById("zip").value;
 
 document.getElementById("generate").addEventListener("click", performAction);
 
 function performAction(e) {
-// Select the actual value of an HTML input to include in POST, what the user enter themselfes
+    // Select the actual value of an HTML input to include in POST, what the user enter themselfes
+    const zipCode = document.getElementById("zip").value;
     const feelings = document.getElementById("feelings").value;
 
     getWeather("/addWeather")
