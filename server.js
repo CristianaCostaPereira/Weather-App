@@ -41,8 +41,8 @@ function sendData (request, response) {
 // POST Route:
 app.post('/add', callBack);
 
-function callBack(req,res){
-  res.send('POST received');
+function callBack (request,response){
+  response.send('POST received');
 };
 
 //POST zip code and fellings:

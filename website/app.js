@@ -1,5 +1,6 @@
 // GET Request to the weather info API
-let baseURL = "http://api.openweathermap.org/data/2.5/weather?id=524901&appid=0eb4744f931606e24a4c0fa078000411";
+let baseURL = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}`;
+const zipCode = "";
 const apiKey = "0eb4744f931606e24a4c0fa078000411";
 
 document.getElementById("generate").addEventListener("click", performAction);
@@ -10,8 +11,8 @@ function performAction(e) {
     const feelings = document.getElementById("feelings").value;
     const content = document.getElementById("content").value
 
-    getWeather("/weatherData")
-    .then(function(data) {
+    //API call
+    getZipCode("/weatherData").then(function(data) {
         console.log(data)
         // Adds data to POST Request
         postData("/addZipCode", {zipCode:zip, feelings:feelings, date: data.date, temperature: data.temperature, content:content});
@@ -20,7 +21,6 @@ function performAction(e) {
         updateUI()
     )
 }
-
 
 // Function to GET Web API Data (Async GET)
 const getWeather = async (baseURL, zipCode, apiKey) => {
