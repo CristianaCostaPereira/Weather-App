@@ -14,7 +14,7 @@ function performAction(e) {
     .then(function(data) {
         console.log(data)
         // Adds data to POST Request
-        postData("/addWeather", {zipCode:zip, feelings:feelings, date: data.date, temperature: data.temperature, content:content});
+        postData("/addZipCode", {zipCode:zip, feelings:feelings, date: data.date, temperature: data.temperature, content:content});
     })
     .then(
         updateUI()
@@ -72,7 +72,7 @@ const updateUI = async () => {
 }
 // Chain async functions to post the zip code then GET the resulting data
 function postGET() {
-    postData ("/addWeather", {feelings:"Not so good with this heat"})
+    postData ("/addZipCode", {feelings:"Not so good with this heat"})
         .then(function (data) {
               retrieveData ("/all")
               })

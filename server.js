@@ -50,10 +50,10 @@ function callBack(req,res){
 const weatherData = [];
 
 // First argument created is the URL I want to use and creat an API to add infos about the weather
-app.post("/addWeather", addWeather);
+app.post("/addZipCode", zipCode);
 
 // Obtains info from request.body and push into the array to have access to it from anywhere within the app
-function addWeather (request, response) {
+function zipCode (request, response) {
     console.log(request.body);
 
     newEntry = {
