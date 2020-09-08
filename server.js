@@ -38,17 +38,16 @@ function sendData (request, response) {
     console.log(projectData);
 };
 
+// POST Route:
+app.post('/add', callBack);
+
+function callBack(req,res){
+  res.send('POST received');
+};
+
+//POST zip code and fellings:
 // Empty array to hold data
 const weatherData = [];
-
-app.get("/all", getData);
-
-function getData(request,response) {
-    response.send(weatherData);
-    console.log(weatherData);
-}
-
-// POST Route:
 
 // First argument created is the URL I want to use and creat an API to add infos about the weather
 app.post("/addWeather", addWeather);
@@ -58,9 +57,11 @@ function addWeather (request, response) {
     console.log(request.body);
 
     newEntry = {
-        temperature: request.body.temperature,
+        zipCode: request.body.zip,
+        feelings: request.body.feelings,
         date: request.body.date,
-        feelings: request.body.feelings
+        temperature: request.body.temperature,
+        content: request.body.content
     }
 
     weatherData.push(newEntry);

@@ -8,30 +8,35 @@ function performAction(e) {
     // Select the actual value of an HTML input to include in POST, what the user enter themselfes
     const zipCode = document.getElementById("zip").value;
     const feelings = document.getElementById("feelings").value;
+    const content = document.getElementById("content").value
 
-    getWeather("/addWeather")
+    getWeather("/weatherData")
     .then(function(data) {
         console.log(data)
-        // Add data to POST Request
-        postData("/addWeather", {temperature: data.temperature, date: data.date, feelings:feelings});
-    });
-};
+        // Adds data to POST Request
+        postData("/addWeather", {zipCode:zip, feelings:feelings, date: data.date, temperature: data.temperature, content:content});
+    })
+    .then(
+        updateUI()
+    )
+}
 
-// Function to GET Web API Data
+
+// Function to GET Web API Data (Async GET)
 const getWeather = async (baseURL, zipCode, apiKey) => {
     const response = await fetch(baseURL, zipCode, apiKey);
-
+    
     try {
-        const data = await response.json();
-        console.log(data);
+        const allData = await response.json();
+        console.log(allData);
     } catch(error) {
         console.log("error", error);
     }
 }
 
-// POST Request client-side code
-const postData = async (url = "", data = {}) => {
-    const response = await fetch(url, {
+// POST Request client-side code(async POST)
+const postData = async (baseURL = "", data = {}) => {
+    const response = await fetch(baseURL, {
         method: "POST",
         credentials: "same-origin",
         headers: {
@@ -49,5 +54,31 @@ const postData = async (url = "", data = {}) => {
     }
 }
 
-// Call function and pass in the path created
+// Dynamic UI
+const updateUI = async () => {
+    const request = await fetch("/all");
+
+    try {
+        const allData = await request.json();
+        document.getElementById("zip").innerHTML = allData[0].zipCode;
+        document.getElementById("feelings").innerHTML = allData[0].feelings;
+        document.getElementById("date").innerHTML = allData[0].date;
+        document.getElementById("temp").innerHTML = allData[0].temperature;
+        document.getElementById("content").innerHTML = allData[0].content;
+
+    } catch(error) {
+        console.log("error", error);
+    }
+}
+// Chain async functions to post the zip code then GET the resulting data
+function postGET() {
+    postData ("/addWeather", {feelings:"Not so good with this heat"})
+        .then(function (data) {
+              retrieveData ("/all")
+              })
+}
+
+//Call function and pass in the path created
+postGET();
+
 // Final code for creating a POST route to save the data to our app
