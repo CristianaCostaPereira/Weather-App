@@ -49,8 +49,8 @@ function addData (request, response) {
 
     console.log("POST received ", data);
     
-    // projectData["date"] = data.date;
-    // projectData["temp"] = data.temp;
+    projectData["date"] = data.date;
+    projectData["temp"] = data.temp;
     projectData["content"] = data.feelings;
 
     // Sends response to endpoint object
