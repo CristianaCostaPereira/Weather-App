@@ -57,11 +57,10 @@ function zipCode (request, response) {
     console.log(request.body);
 
     newEntry = {
-        zipCode: request.body.zip,
-        feelings: request.body.feelings,
-        date: request.body.date,
-        temperature: request.body.temperature,
-        content: request.body.content
+        zipCode: data.zip,
+        feelings: data.feelings,
+        date: data.date,
+        temperature: data.temperature
     }
 
     weatherData.push(newEntry);
