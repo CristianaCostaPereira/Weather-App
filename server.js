@@ -29,6 +29,7 @@ const server = app.listen (port, () => {
     console.log(`running on localhost:${port}`);
 });
 
+// GET route:
 // Respond with JS object when a GET route request is made to the homepage
 // "/all" so that the route triggers the GET request and returns the JS object
 app.get("/all", sendData);
@@ -36,34 +37,26 @@ app.get("/all", sendData);
 function sendData (request, response) {
     response.send(projectData);
     console.log(projectData);
-};
+}
 
 // POST Route:
-app.post('/add', callBack);
-
-function callBack (request,response){
-  response.send('POST received');
-};
-
-//POST zip code and fellings:
-// Empty array to hold data
-const weatherData = [];
-
 // First argument created is the URL I want to use and creat an API to add infos about the weather
-app.post("/addZipCode", zipCode);
 
-// Obtains info from request.body and push into the array to have access to it from anywhere within the app
-function zipCode (request, response) {
-    console.log(request.body);
+app.post('/add', addData);
 
-    newEntry = {
-        zipCode: data.zip,
-        feelings: data.feelings,
-        date: data.date,
-        temperature: data.temperature
-    }
+function addData (request, response) {
+    let data = request.body;
 
-    weatherData.push(newEntry);
-    response.send(weatherData);
-    console.log(weatherData);
+    console.log("POST received ", data);
+    
+    projectData["date"] = data.date;
+    projectData["temp"] = data.temp;
+    projectData["feelings"] = data.feelings;
+
+    
+    // Obtains info from request.body and push into the endpoint to have access to it from anywhere within the app
+    projectData.push(data);
+
+    // Sends response to endpoint object
+    response.send(projectData);
 }

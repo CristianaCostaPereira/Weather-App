@@ -12,10 +12,10 @@ function performAction(e) {
     const content = document.getElementById("content").value
 
     //API call
-    getZipCode("/weatherData").then(function(data) {
+    getZipCode("/add").then(function(data) {
         console.log(data)
         // Adds data to POST Request
-        postData("/addZipCode", {zipCode:zip, feelings:feelings, date: data.date, temperature: data.temperature});
+        postData("/add", {date: data.date, temperature: data.temperature, feelings:feelings});
     })
     .then(
         updateUI()
@@ -35,7 +35,7 @@ const getWeather = async (baseURL, zipCode, apiKey) => {
 }
 
 // POST Request client-side code(async POST)
-const postData = async (baseURL = "", weatherData = {}) => {
+const postData = async (baseURL = "", data = {}) => {
     const response = await fetch(baseURL, {
         method: "POST",
         credentials: "same-origin",
