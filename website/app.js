@@ -3,7 +3,7 @@ let baseURL = "http://api.openweathermap.org/data/2.5/weather";
 const apiKey = "0eb4744f931606e24a4c0fa078000411";
 
 let d = new Date();
-let currentDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+let currentDate = d.getDate()+'.'+ d.getMonth()+'.'+ d.getFullYear();
 
 document.getElementById("generate").addEventListener("click", performAction);
 
