@@ -3,7 +3,7 @@ let baseURL = "http://api.openweathermap.org/data/2.5/weather";
 const apiKey = "0eb4744f931606e24a4c0fa078000411";
 
 let d = new Date();
-let currentDate = d.getDate()+'.'+ d.getMonth()+'.'+ d.getFullYear();
+let currentDate = d.getDate()+'.'+ (d.getMonth() + 1) +'.'+ d.getFullYear();
 
 document.getElementById("generate").addEventListener("click", performAction);
 
@@ -17,7 +17,11 @@ function performAction(e) {
         console.log(data)
 
         // Adds data to POST Request
-        postData("http:localhost:8000/add", {date: currentDate, temp: data.main.temp, content:feelings})
+        postData("/add", {
+            date: currentDate, 
+            temp: data.main.temp, 
+            content: feelings
+        })
 
         updateUI();
     })
@@ -60,14 +64,14 @@ const postData = async (url = "", data = {}) => {
 
 // Dynamic UI
 const updateUI = async () => {
-    const request = await fetch("http:localhost:8000/all");
+    const request = await fetch("/all");
 
     try {
         const allData = await request.json();
         
-        document.getElementById("date").innerHTML = `Date: ${allData[0].date}`;
-        document.getElementById("temp").innerHTML = `Temperature: ${allData[0].temp}`;
-        document.getElementById("content").innerHTML = `Fellings: ${allData[0].feelings}`;
+        document.getElementById("date").innerHTML = `Date: ${allData.date}`;
+        document.getElementById("temp").innerHTML = `Temperature: ${allData.temp}`;
+        document.getElementById("content").innerHTML = `Fellings: ${allData.content}`;
 
     } catch(error) {
         console.log("error", error);

@@ -50,7 +50,7 @@ function addData (request, response) {
     
     projectData["date"] = data.date;
     projectData["temp"] = data.temp;
-    projectData["content"] = data.feelings;
+    projectData["content"] = data.content;
 
     // Sends response to endpoint object
     response.send(projectData);
