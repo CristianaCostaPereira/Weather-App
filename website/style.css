@@ -101,6 +101,7 @@ button:hover {
 .response-detail {
     display: flex;
     align-items: center;
+    max-width: 320px;
 }
 
 .response-detail i {
