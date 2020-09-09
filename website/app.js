@@ -60,7 +60,7 @@ const postData = async (url = "", data = {}) => {
 
 // Dynamic UI
 const updateUI = async () => {
-    const request = await fetch("/all");
+    const request = await fetch("http:localhost:8000/all");
 
     try {
         const allData = await request.json();
