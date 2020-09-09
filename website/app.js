@@ -1,5 +1,5 @@
 // GET Request to the weather info API
-let baseURL = `http://api.openweathermap.org/data/2.5/weather`;
+let baseURL = "http://api.openweathermap.org/data/2.5/weather";
 const apiKey = "0eb4744f931606e24a4c0fa078000411";
 
 let d = new Date();
@@ -17,7 +17,7 @@ function performAction(e) {
         console.log(data)
 
         // Adds data to POST Request
-        postData("http:localhost:8000/add", {date: currentDate, temperature: data.main.temp, content:feelings})
+        postData("http:localhost:8000/add", {date: currentDate, temp: data.main.temp, content:feelings})
 
         updateUI();
     })
@@ -26,7 +26,7 @@ function performAction(e) {
 // Function to GET Web API Data (Async GET)
 const getWeather = async (baseURL, zip, api) => {
 
-    const response = await fetch(baseURL + '?zip=' + zip + '&units=metric' + '&appid=' + api);
+    const response = await fetch(baseURL + "?zip=" + zip + "&units=metric" + "&appid=" + api);
 
     try {
         const data = await response.json();
@@ -64,8 +64,9 @@ const updateUI = async () => {
 
     try {
         const allData = await request.json();
+        
         document.getElementById("date").innerHTML = `Date: ${allData[0].date}`;
-        document.getElementById("temp").innerHTML = `Temperature: ${allData[0].temperature}`;
+        document.getElementById("temp").innerHTML = `Temperature: ${allData[0].temp}`;
         document.getElementById("content").innerHTML = `Fellings: ${allData[0].feelings}`;
 
     } catch(error) {
