@@ -18,8 +18,8 @@ function performAction(e) {
 
         // Adds data to POST Request
         postData("/add", {
-            date: currentDate, 
-            temp: data.main.temp, 
+            date: currentDate,
+            temp: data.main.temp,
             content: feelings
         })
 
@@ -68,7 +68,7 @@ const updateUI = async () => {
 
     try {
         const allData = await request.json();
-        
+
         document.getElementById("date").innerHTML = `Date: ${allData.date}`;
         document.getElementById("temp").innerHTML = `Temperature: ${allData.temp}`;
         document.getElementById("content").innerHTML = `Fellings: ${allData.content}`;

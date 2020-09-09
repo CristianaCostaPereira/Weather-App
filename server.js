@@ -47,7 +47,7 @@ function addData (request, response) {
     let data = request.body;
 
     console.log("POST received ", data);
-    
+
     projectData["date"] = data.date;
     projectData["temp"] = data.temp;
     projectData["content"] = data.content;
