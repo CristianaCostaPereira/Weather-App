@@ -26,7 +26,7 @@ function performAction(e) {
 // Function to GET Web API Data (Async GET)
 const getWeather = async (baseURL, zip, api) => {
 
-    const response = await fetch(baseURL + '?zip=' + zip + '&appid=' + api);
+    const response = await fetch(baseURL + '?zip=' + zip + '&units=metric' + '&appid=' + api);
 
     try {
         const data = await response.json();
