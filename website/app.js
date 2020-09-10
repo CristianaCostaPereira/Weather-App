@@ -77,3 +77,32 @@ const updateUI = async () => {
         console.log("error", error);
     }
 }
+
+// Trigger a Button Click on Enter
+// Get the input field
+var zipInput = document.getElementById("zip");
+
+// Execute a function when the user releases a key on the keyboard
+zipInput.addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+
+    performAction();
+  }
+});
+
+
+// Trigger textarea on click Enter
+var feelingsInput = document.getElementById("feelings");
+
+feelingsInput.addEventListener("keyup", function(event) {
+
+  if (event.keyCode === 13) {
+
+    event.preventDefault();
+
+    performAction(); 
+  }
+});
