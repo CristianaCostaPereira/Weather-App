@@ -94,7 +94,6 @@ zipInput.addEventListener("keyup", function(event) {
   }
 });
 
-
 // Trigger textarea on click Enter
 var feelingsInput = document.getElementById("feelings");
 
