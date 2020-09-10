@@ -28,7 +28,7 @@ const server = app.listen (port, () => {
     console.log(`Server is running on localhost:${port}`);
 });
 
-// GET route:
+// GET route (returns the projectData in my server):
 // Respond with JS object when a GET route request is made to the homepage
 // "/all" so that the route triggers the GET request and returns the JS object
 app.get("/all", sendData);
@@ -38,9 +38,8 @@ function sendData (request, response) {
     console.log(projectData);
 }
 
-// POST Route:
+// POST Route (add a Post route adding data to projectData):
 // First argument created is the URL I want to use and creat an API to add infos about the weather
-
 app.post('/add', addData);
 
 function addData (request, response) {

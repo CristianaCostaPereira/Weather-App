@@ -2,8 +2,9 @@
 let baseURL = "http://api.openweathermap.org/data/2.5/weather";
 const apiKey = "0eb4744f931606e24a4c0fa078000411";
 
+const months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]; // Store month names in array
 let d = new Date();
-let currentDate = d.getDate()+'.'+ (d.getMonth() + 1) +'.'+ d.getFullYear();
+let currentDate = d.getDate()+'.'+ months[(d.getMonth() + 1)] +'.'+ d.getFullYear();
 
 document.getElementById("generate").addEventListener("click", performAction);
 
