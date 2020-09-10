@@ -4,8 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@600;700&display=swap');
 
 * {
-    margin: 0px;
     padding: 0px;
+    margin: 0px;
     box-sizing: border-box;
 }
 
@@ -19,9 +19,9 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    font-family: sans-serif;
     color: rgb(27 136 136);
     background-image: url(https://www.wallpapertip.com/wmimgs/6-63218_900566-title-anime-black-clover-charmy-pappitson-black.png);
-    font-family: sans-serif;
 }
 
 .heading {
@@ -60,25 +60,28 @@ label[for="zip"] {
 
 /*enter zip code here box*/
 #zip {
+    font-family: 'Source Serif Pro', serif;
     background-color: #eeeef3f5;
-    padding-bottom: 2px;
     padding: 4px;
 }
 
 textarea.write-feels {
+    font-family: 'Source Serif Pro', serif;
+    padding: 4px;
     background-color: #eeeef3f5;
 }
 
 button {
-    font-size: 13px;
+    font-size: 14px;
+    font-family: 'Source Serif Pro', serif;
     color: #e2dede;
     width: 100%;
     text-transform: uppercase;
     border: 2px solid #17807be0;
+    background-color: #198686e0;
     padding: 8px;
     margin-top: 7px;
     margin-bottom: 11px;
-    background-color: #198686e0;
     border-radius: 6px;
     cursor: pointer;
     transition-duration: 0.4s;
@@ -94,7 +97,6 @@ button:hover {
 .info-icons {
     font-size: 15px;
     color: rgb(8 58 58);
-    text-shadow: 2px 1px 1px #ccc;
     background-color: #ffffffde;
     padding: 15px;
 }
@@ -102,22 +104,26 @@ button:hover {
 .response-detail {
     display: flex;
     align-items: center;
+    color: #000000;
+    font-family: 'Source Serif Pro', serif;
     overflow-wrap: break-word;
     max-width: 150px;
 }
 
 .response-detail i {
     text-align: center;
+    color: #156b5f;
+    text-shadow: 2px 1px 1px #ccc;
     width: 30px;
-    margin-right: 8px;
+    margin-right: 6px;
 }
 
 footer {
     font-family: 'Charm', cursive;
     font-size: 16px;
     font-weight: 700;
-    padding: 25px;
     text-align: center;
+    padding: 25px;
     margin-top: 20px;
     border-radius: 20px;
 }
