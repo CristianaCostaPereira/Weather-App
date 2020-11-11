@@ -68,7 +68,7 @@ const updateUI = async () => {
     const request = await fetch("/all");
 
     try {
-        const allData = await request.json();
+        const data = await request.json();
 
         document.getElementById("date").innerHTML = `Date: ${allData.date}`;
         document.getElementById("temp").innerHTML = `Temperature: ${allData.temp}`;
